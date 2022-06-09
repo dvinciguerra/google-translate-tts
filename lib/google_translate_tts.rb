@@ -2,24 +2,30 @@
 
 require "cgi"
 require "faraday"
-require "tempfile"
+require "fileutils"
 require "securerandom"
+require "tempfile"
 
-require_relative "google_translate_tts/version"
 require_relative "google_translate_tts/constanting"
+require_relative "google_translate_tts/fileable"
+require_relative "google_translate_tts/version"
 
 module GoogleTranslateTts
   include Constanting
-
-  TTS_TMP_DIR = '/var/tmp/tts_tmp'
-
+  include Fileable
 
   class << self
     def fetch(phrase, **options)
-      lang, _ = options.values_at(:lang)
+      with_temp_file do |file|
+        lang = options.fetch(:lang, "en_US")
+        filename = options.fetch(:file, "file")
 
-      file = Tempfile.new('hello', )
-      pp Faraday.get(tts_resource_url(q: phrase, tl: lang))
+        response = Faraday.get(tts_resource_url(q: phrase, tl: lang))
+
+        file.write(response.body)
+
+        FileUtils.cp(file.path, "#{filename}.mp3")
+      end
     end
 
     private
@@ -41,5 +47,4 @@ module GoogleTranslateTts
       params.map { |(key, value)| "#{key}=#{CGI.escape(value)}" }.join("&")
     end
   end
-
 end

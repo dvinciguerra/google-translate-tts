@@ -2,6 +2,6 @@
 
 require_relative "lib/google_translate_tts"
 
-# require 'byebug'; byebug
+# download text as mp3 file (default named file,mp3)
+GoogleTranslateTts.fetch("Alexa... turn the living room light off!", lang: 'en_US')
 
-pp GoogleTranslateTts.fetch("xunda")
