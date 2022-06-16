@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative "lib/google/translate/tts/version"
+require_relative "lib/google_translate_tts/version"
 
 Gem::Specification.new do |spec|
   spec.name = "google-translate-tts"
-  spec.version = Google::Translate::Tts::VERSION
+  spec.version = GoogleTranslateTts::VERSION
   spec.authors = ["Daniel Vinciguerra"]
   spec.email = ["daniel.vinciguerra@bivee.com.br"]
 
