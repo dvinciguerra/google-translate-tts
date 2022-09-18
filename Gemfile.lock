@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    google-translate-tts (0.1.0)
+    google-translate-tts (0.2.0)
       faraday
 
 GEM
@@ -13,7 +13,7 @@ GEM
     faraday (2.3.0)
       faraday-net_http (~> 2.0)
       ruby2_keywords (>= 0.0.4)
-    faraday-net_http (2.0.2)
+    faraday-net_http (2.0.3)
     parallel (1.22.1)
     parser (3.1.2.0)
       ast (~> 2.4.1)
