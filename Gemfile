@@ -2,13 +2,11 @@
 
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in google-translate-tts.gemspec
 gemspec
 
 gem "rake", "~> 13.0"
 
-gem "minitest", "~> 5.0"
-
-gem "rubocop", "~> 1.21"
-
-gem "byebug"
+group :development, :test do
+  gem "byebug"
+  gem "rspec", "~> 3.11"
+end

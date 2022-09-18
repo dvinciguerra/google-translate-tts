@@ -1,16 +1,21 @@
 # frozen_string_literal: true
 
 require "bundler/gem_tasks"
-require "rake/testtask"
 
-Rake::TestTask.new(:test) do |t|
-  t.libs << "test"
-  t.libs << "lib"
-  t.test_files = FileList["test/**/test_*.rb"]
+# rspec
+begin
+  require "rspec/core/rake_task"
+  RSpec::Core::RakeTask.new(:spec)
+rescue LoadError
+  warn "Need to install rspec: $ gem install rspec"
 end
 
-require "rubocop/rake_task"
+# rubocop
+begin
+  require "rubocop/rake_task"
+  RuboCop::RakeTask.new
+rescue LoadError
+  warn "Need to install rubocop: $ gem install rubocop rubocop-rspec"
+end
 
-RuboCop::RakeTask.new
-
-task default: %i[test rubocop]
+task default: %i[spec rubocop]
