@@ -10,4 +10,13 @@ Style/StringLiteralsInInterpolation:
   EnforcedStyle: single_quotes
 
 Layout/LineLength:
+  Severity: warning
   Max: 120
+
+Metrics/BlockLength:
+  Severity: warning
+  Exclude: ["**/*_spec.rb"]
+
+Style/Documentation:
+  Severity: warning
+  AllowedConstants: ['ClassMethods']
