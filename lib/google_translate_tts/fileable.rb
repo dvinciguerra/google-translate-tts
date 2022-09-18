@@ -1,3 +1,8 @@
+# frozen_string_literal: true
+
+require "tempfile"
+require "securerandom"
+
 module GoogleTranslateTts
   module Fileable
     def self.included(base)
@@ -14,7 +19,7 @@ module GoogleTranslateTts
       end
 
       def setup_temp_dir!
-        FileUtils.mkdir_p(self::TTS_TMP_DIR) unless Dir.exists? self::TTS_TMP_DIR
+        FileUtils.mkdir_p(self::TTS_TMP_DIR) unless Dir.exist? self::TTS_TMP_DIR
       end
     end
   end
