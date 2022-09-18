@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require "cgi"
-require "fileutils"
+require 'cgi'
+require 'fileutils'
 
 module GoogleTranslateTts
   module Utils

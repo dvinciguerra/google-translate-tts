@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require "tempfile"
-require "securerandom"
+require 'tempfile'
+require 'securerandom'
 
 module GoogleTranslateTts
   module Fileable
